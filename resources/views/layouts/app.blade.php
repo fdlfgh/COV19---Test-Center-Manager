@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>UniGO</title>
+    <title>COV19</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -79,4 +79,5 @@
         </main>
     </div>
 </body>
+
 </html>
