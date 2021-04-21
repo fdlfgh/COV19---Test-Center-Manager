@@ -17,18 +17,16 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::group(['middleware' => ['auth', 'tester']], function(){
-  Route::resource('tester', 'TesterController');
-});
-
-Route::group(['middleware' => ['auth', 'testCenterOfficer']], function(){
-  Route::resource('testCenterOfficer', 'TestOfficerController');
-});
-
-Route::group(['middleware' => ['auth', 'patient']], function(){
-  Route::resource('patient', 'PatientController');
-});
-
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+// add tester and test center officer
+Route::post('/addTester', 'HomeController@addTester')->name('addTester');
+
+// testkit
+Route::post('/testkit/add', 'TestKitController@store')->name('addTestkit');
+Route::put('/testkit/update', 'TestKitController@update');
+Route::delete('/testkit/delete', 'TestKitController@destroy');
+
+//test center
+Route::post('/testcenter/add', 'TestCenterController@store');
+Route::put('/testcenter/update', 'TestCenterController@update');
+Route::delete('/testcenter/delete', 'TestCenterController@destroy');
