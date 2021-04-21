@@ -25,8 +25,3 @@ Route::post('/addTester', 'HomeController@addTester')->name('addTester');
 Route::post('/testkit/add', 'TestKitController@store')->name('addTestkit');
 Route::put('/testkit/update', 'TestKitController@update');
 Route::delete('/testkit/delete', 'TestKitController@destroy');
-
-//test center
-Route::post('/testcenter/add', 'TestCenterController@store');
-Route::put('/testcenter/update', 'TestCenterController@update');
-Route::delete('/testcenter/delete', 'TestCenterController@destroy');

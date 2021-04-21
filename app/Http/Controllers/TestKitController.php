@@ -112,11 +112,11 @@ class TestKitController extends Controller
             ->delete();
 
             return back()
-            ->with('status',"Test kit deleted successfully")
+            ->with('status',"Test kit Updated successfully")
             ->with('alert-class',"alert-success");
         }catch(Exception $e){
             return back()
-            ->with('status',"Test kit Failed to delete")
+            ->with('status',"Test kit Failed to Update")
             ->with('alert-class',"alert-danger");
         }
     }

@@ -38,17 +38,17 @@ class TestCenterController extends Controller
         $data = $request->input();
         try{
             TestCenter::create([
-              'name' => $data['testCenterName']
+                'name' => $data['name'],
             ]);
-    
+
             return back()
-              ->with('status',"Test Center Added successfully")
-              ->with('alert-class',"alert-success");
-          }catch(Exception $e){
+            ->with('status',"Test Center Added successfully")
+            ->with('alert-class',"alert-success");
+        }catch(Exception $e){
             return back()
-              ->with('status',"Test Center Failed to Add")
-              ->with('alert-class',"alert-danger");
-          }
+            ->with('status',"Test Center Failed to Add")
+            ->with('alert-class',"alert-danger");
+        }
     }
 
     /**
@@ -85,7 +85,7 @@ class TestCenterController extends Controller
         $data = $request->input();
         try{
             TestCenter::where('id', $data['id'])
-            ->update(['name' => $data['name']]);
+            ->update(['name' => $data['name'], ]);
 
             return back()
             ->with('status',"Test Center Updated successfully")
@@ -100,7 +100,7 @@ class TestCenterController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\TestCenter  $testCenter
+     * @param  \App\Center  $testCenter
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request)
@@ -111,11 +111,11 @@ class TestCenterController extends Controller
             ->delete();
 
             return back()
-            ->with('status',"Test Center deleted successfully")
+            ->with('status',"Test Center Updated successfully")
             ->with('alert-class',"alert-success");
         }catch(Exception $e){
             return back()
-            ->with('status',"Test Center Failed to delete")
+            ->with('status',"Test Center Failed to Update")
             ->with('alert-class',"alert-danger");
         }
     }

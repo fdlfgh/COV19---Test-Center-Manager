@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 use Auth;
 use App\User;
 use App\TestKit;
-use App\TestCenter;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
@@ -27,7 +26,7 @@ class HomeController extends Controller
      */
     public function index(){
       $testerDataList = User::where('role', 'tester')->get();
-      $testCenterDataList = TestCenter::get();
+      $testCenterDataList = User::where('role', 'testCenter')->get();
       $testKitDataList = TestKit::get();
       return view('home', compact("testerDataList", "testCenterDataList", "testKitDataList"));
     }

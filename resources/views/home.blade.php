@@ -99,8 +99,9 @@
             </button>
           </div>
           <div class="modal-body">
-            <form class="" action="/testcenter/add" method="post">
+            <form class="" action="/addTestCenter" method="post">
               @csrf
+              <input type="hidden" name="role" value="testCenter">
               <input class="form-control" type="text" placeholder="Test Center Name" name="testCenterName">
               <br>
 
@@ -121,57 +122,19 @@
       <table class="table">
         <thead>
           <tr>
-            <th scope="col">Id</th>
+            <th scope="col">#</th>
             <th scope="col">Name</th>
-            <th scope="col">Created at</th>
-            <th scope="col">Updated at</th>
-            <th scope="col">Action</th>
+            <th scope="col">Role</th>
+            <th scope="col">Email</th>
           </tr>
         </thead>
         <tbody>
           @foreach($testCenterDataList as $key=>$testCenterDataList)
             <tr>
-              <th scope="row">{{$testCenterDataList->id}}</th>
-              <td>{{$testCenterDataList->name}}</td>
-              <td>{{$testCenterDataList->created_at}}</td>
-              <td>{{$testCenterDataList->updated_at}}</td>
-              <td>
-                <!-- Button trigger modal -->
-                <button type="button" style="float: left;" class="btn btn-primary" data-toggle="modal" data-target="#modalTestCenter{{$key}}">
-                  Edit
-                </button>
-
-                <form class="" action="/testcenter/delete" method="post" >
-                  @method('DELETE')
-                  @csrf
-                  <input type="hidden" name="id" value="{{$testCenterDataList->id}}">
-                  <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?');">
-                    Delete
-                  </button>
-                </form>
-                <!-- Modal -->
-                <div class="modal fade" id="modalTestCenter{{$key}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Update Test Kit</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <form class="" action="/testcenter/update" method="post">
-                          @method('PUT')
-                          @csrf
-                          <input type="hidden" name="id" value="{{$testCenterDataList->id}}">
-                          <input class="form-control" type="text" placeholder="Name" name="name" value="{{$testCenterDataList->name}}">
-                          <br>
-                          <button type="submit" class="btn btn-primary">Save changes</button>
-                        </form>
-                      </div>
-                    </div>
-                </div>
-              </td>
+              <th scope="row">{{$key+1}}</th>
+              <td>{{$testerDataList->name}}</td>
+              <td>{{$testerDataList->role}}</td>
+              <td>{{$testerDataList->email}}</td>
             </tr>
           @endforeach
         </tbody>
