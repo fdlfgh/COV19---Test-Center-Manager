@@ -40,7 +40,7 @@ class TestCenterController extends Controller
             TestCenter::create([
               'name' => $data['testCenterName']
             ]);
-    
+
             return back()
               ->with('status',"Test Center Added successfully")
               ->with('alert-class',"alert-success");
