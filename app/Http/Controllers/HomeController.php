@@ -28,8 +28,13 @@ class HomeController extends Controller
      */
     public function index(){
       $testerDataList = User::where('role', 'tester')->select(
+<<<<<<< HEAD
         'users.*', 
         'test_centers.name as test_center_name', 
+=======
+        'users.*',
+        'test_centers.name as test_center_name',
+>>>>>>> ddbaadf781ec5c3975aed8251ed31d4b16f947af
         'test_centers.id as test_center_id'
       )
       ->join('testers', 'testers.user_id', '=', 'users.id')
@@ -98,7 +103,11 @@ class HomeController extends Controller
         try{
           Tester::where('user_id', $data['id'])
           ->delete();
+<<<<<<< HEAD
           
+=======
+
+>>>>>>> ddbaadf781ec5c3975aed8251ed31d4b16f947af
           User::where('id', $data['id'])
           ->delete();
 

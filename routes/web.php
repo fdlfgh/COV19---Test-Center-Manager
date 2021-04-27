@@ -31,4 +31,8 @@ Route::delete('/testkit/delete', 'TestKitController@destroy');
 //test center
 Route::post('/testcenter/add', 'TestCenterController@store');
 Route::put('/testcenter/update', 'TestCenterController@update');
+<<<<<<< HEAD
 Route::delete('/testcenter/delete', 'TestCenterController@destroy');
+=======
+Route::delete('/testcenter/delete', 'TestCenterController@destroy');
+>>>>>>> ddbaadf781ec5c3975aed8251ed31d4b16f947af
